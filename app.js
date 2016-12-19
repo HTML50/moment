@@ -1,126 +1,149 @@
-Ractive.DEBUG = false;
-function index(page){
-    var page = parseInt(page) || 1;
-    window._G = window._G || {post: {}, postList: {}};
-    $('title').html(_config['blog_name']);
-    if(_G.postList[page] != undefined){
-      $('#container').html(_G.postList[page]);
-      return;
-    }
+var httpRequest,id,flag=0,previousHeight;
+//flag:
+//0: first time on site
+//1: open blog page
+//2: normal visit
 
-    $.ajax({
-        url:"https://api.github.com/repos/"+_config['owner']+"/"+_config['repo']+"/issues",
-        data:{
-            filter       : 'created',
-            page         : page,
-            // access_token : _config['access_token'],
-            per_page     : _config['per_page']
-        },
-        beforeSend:function(){
-          $('#container').html('<center><img src="loading.gif" class="loading"></center>');
-        },
-        success:function(data, textStatus, jqXHR){
-            var link = jqXHR.getResponseHeader("Link") || "";
-            var next = false;
-            var prev = false;
-            if(link.indexOf('rel="next"') > 0){
-              next = true;
-            }
-            if(link.indexOf('rel="prev"') > 0){
-              prev = true;
-            }
-            var ractive = new Ractive({
-                template : '#listTpl',
-                data     : {
-                    posts : data,
-                    next  : next,
-                    prev  : prev,
-                    page  : page
-                }
-            });
-            window._G.postList[page] = ractive.toHTML();
-            $('#container').html(window._G.postList[page]);
 
-            //将文章列表的信息存到全局变量中，避免重复请求
-            for(i in data){
-              var ractive = new Ractive({
-                  template : '#detailTpl',
-                  data     : {post: data[i]}
-              });
-              window._G.post[data[i].number] = {};
-              window._G.post[data[i].number].body = ractive.toHTML();
-              
-              var title = data[i].title + " | " + _config['blog_name'];
-              window._G.post[data[i].number].title = title;
-            }
-        }
-    });
+makeRequest('list.html')
+//open index.html and load list.html, with flag=0, means no auto scroll roll
+
+FSS("header", "dynamic-background");
+//generate the header animation
+
+function makeRequest(url,num) {
+httpRequest = new XMLHttpRequest();
+if (!httpRequest) {
+  console.debug('Giving up :( Cannot create an XMLHTTP instance');
+  return false;
 }
 
-function highlight(){
-  $('pre code').each(function(i, block) {
-    hljs.highlightBlock(block);
-  });
+//blog flag
+if(num == 1){flag=1;}
+document.getElementById('list').style.height = '10000px';
+document.getElementById('spinner').style.display='block';
+document.getElementById('list').classList.add ('animation','fadeOutDown');
+httpRequest.onreadystatechange = alertContents;
+
+//for transition animation
+setTimeout(function(){
+	httpRequest.open('GET', url);
+	httpRequest.send();
+	//pushState will change the broswer's file path. 
+	//if do this before ajax get. You will get wrong
+	//eg. request: blog/index.html
+	//you get: blog/blog/index.html
+	if(url != location.pathname){
+	history.pushState(null, null, url);
+	}
+},250)
 }
 
-// 动态加载多说评论框的函数
-function toggleDuoshuoComments(container, id){
-    var el = document.createElement('div');
-    var url = window.location.href;
-    el.setAttribute('data-thread-key', id);
-    el.setAttribute('data-url', url);
-    DUOSHUO.EmbedThread(el);
-    jQuery(container).append(el);
+function alertContents() {
+if (httpRequest.readyState === XMLHttpRequest.DONE) {
+  if (httpRequest.status === 200) {
+	var ajaxSource = httpRequest.responseText;
+	
+		if(flag==1){
+			ajaxSource = ajaxSource.replace(/<!doctype html>[\s\S|\.]*<body>/, '');
+			flag=null;
+		}
+	document.getElementById('list').innerHTML = ajaxSource;
+	document.getElementById('list').classList.remove ('fadeOutDown');
+	document.getElementById('list').classList.add ('fadeInUp');
+	document.getElementById('spinner').style.display='none';
+			setTimeout(function(){
+			document.getElementById('list').style.height = '';
+		},1000)
+	if(flag == 0){flag=null;}
+	else{
+		smoothMove(520);
+		}
+  } else {
+	console.debug('There was a problem with the request.');
+  }
+}
 }
 
-function detail(id){
-    if(!window._G){
-      window._G = {post: {}, postList: {}};
-      window._G.post[id] = {};  
-    }
-    
-    if(_G.post[id].body != undefined){
-      $('#container').html(_G.post[id].body);
-      $('title').html(_G.post[id].title);
-      toggleDuoshuoComments('#container', id);
-      highlight();
-      return;
-    }
-    $.ajax({
-        url:"https://api.github.com/repos/"+_config['owner']+"/"+_config['repo']+"/issues/" + id,
-        data:{
-            // access_token:_config['access_token']
-        },
-        beforeSend:function(){
-          $('#container').html('<center><img src="loading.gif" alt="loading" class="loading"></center>');
-        },
-        success:function(data){
-            var ractive = new Ractive({
-                 el: "#container",
-                 template: '#detailTpl',
-                 data: {post: data}
-            });
 
-            $('title').html(data.title + " | " + _config['blog_name']);
-            toggleDuoshuoComments('#container', id);
-            highlight();
-        }
-    });  
-
-}
-
-var helpers = Ractive.defaults.data;
-helpers.markdown2HTML = function(content){
-    return marked(content);
-}
-helpers.formatTime = function(time){
-    return time.substr(0,10);
-}
-
-var routes = {
-    '/': index,
-    'p:page': index,
-    'post/:postId': detail
+window.onpopstate = function(event) {
+	if(location.pathname == '/'){
+		makeRequest('list.html');	
+	}
+	else{
+		makeRequest(location.pathname);	
+	}
 };
-var router = Router(routes);
-router.init('/');
+
+document.addEventListener("mousewheel", MouseWheelHandler, false);
+// Firefox
+document.addEventListener("DOMMouseScroll", MouseWheelHandler, false);
+function MouseWheelHandler(e) {
+	clearInterval(id)
+	return false;
+}
+
+document.addEventListener("scroll", function(){
+	if(window.pageYOffset > 600){
+		if(document.getElementById('nav').style.opacity==0) document.getElementById('nav').style.opacity=1;
+	}
+	else{
+		if(document.getElementById('nav').style.opacity==1) document.getElementById('nav').style.opacity=0;
+	}
+});
+
+window.addEventListener("keydown", function(e){
+	if(e.keyCode == 0x74){
+		e.preventDefault();
+		makeRequest(location.href);
+	}
+});
+
+
+
+function smoothMove(y){
+	var	height = window.pageYOffset;
+	if(height < y){
+	id = setInterval(function(){
+		window.scrollTo(0, height);
+		if(height<y-110){
+		height+=80;
+		}
+		else if(height<y-20){
+			height+=3;
+		}
+		else if(height<y){
+			height+=1;
+		}
+		else{
+		clearInterval(id)
+		}
+	},16)
+	}
+	else {
+		id = setInterval(function(){
+		window.scrollTo(0, height);
+		if(height > y+1000){
+		height-=500;
+		}
+		if(height > y+110){
+		height-=80;
+		}
+		else if(height>y+20){
+			height-=3;
+		}
+		else if(height>y){
+			height-=1;
+		}
+		else{
+		clearInterval(id)
+		}
+	},16)
+	}
+}
+
+
+if ('scrollRestoration' in history) {
+  // Back off, browser, I got this...
+  history.scrollRestoration = 'manual';
+}
