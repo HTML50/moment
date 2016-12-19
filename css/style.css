@@ -8,6 +8,7 @@ html,body{
 	font-family: 'Microsoft YaHei';
     font-weight: bolder;
     font-size: 1.5rem;
+	background:#d9d9d9;
 }
 
 
@@ -24,24 +25,44 @@ html,body{
 	opacity:1
 }
 
+.no-underline{
+	text-decoration:none;
+    color: #fff;
+}
+
 #app-name{
 position: fixed;
     top: 10px;
-    left: 10px;
+    left: 20px;
     background: rgba(2, 6, 7, 0.3);
-    color: #fff;
     padding: 10px;
 }
 
+
 #music{
 	position:fixed;
-	top:10px;
-	right:10px;
-	height:20px;
-	width:20px;
+	top:20px;
+	right:30px;
+	height:30px;
+	width:30px;
 	padding:10px;
 	background:url(../music.svg) no-repeat;
 	background-size:cover;
+}
+
+
+#header{
+	display:none;
+	opacity:0;
+	background:url(../1.jpg) no-repeat center;
+	background-size:cover;
+	transition:opacity .5s;
+	height: 400px;
+}
+
+#article{
+	width:80%;
+	margin:50px auto;
 }
 
 
@@ -65,4 +86,31 @@ position: fixed;
     background: rgba(255, 255, 255, 0.4);
     color: #fff;
 	text-shadow:2px 3px 4px #686868;
+	transition:background,text-shadow .5s,.5s;
+}
+
+.title:hover{
+background: rgba(255, 255, 255,0);
+text-shadow:2px 3px 4px #000;
+}
+
+
+.left-bar{
+	float:left;
+	width:50%;
+	background:#ccc;
+}
+.right-bar{
+	float:right;
+	width:50%;
+}
+
+.center{
+	text-align:center;
+}
+.clear{
+	clear:both;
+}
+.footer{
+	margin-top:2rem;
 }
