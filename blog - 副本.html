@@ -1,3 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>首页 | 此刻</title>
+<link rel='stylesheet' href='css/style.css' type='text/css'/>  
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<script src="config.js"></script>
+</head>
+<body>
+
+<div id='app-name' class='top opacity'><a href='index.html' class='no-underline'>此刻</a></div>
+<div id='music' class='top opacity'></div>
+<header id='header'></header>
+
+<section id='list'>
 <article id='article'>
 <header>
 <h1>背影</h1>
@@ -22,3 +39,20 @@
 
 
 </article>
+
+
+</section>
+
+<footer class='center footer'>
+2byte
+</footer>
+
+<script>
+var header=document.getElementById('header');
+header.style.display = 'block';
+setTimeout(function(){
+header.style.opacity = 1;
+},0)
+</script>
+</body>
+</html>

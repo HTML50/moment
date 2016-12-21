@@ -6,25 +6,23 @@
 <title>首页 | 此刻</title>
 <link rel='stylesheet' href='css/style.css' type='text/css'/>  
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<script src="config.js"></script>
-<script src="app.js"></script>
 </head>
 <body>
 
-<div id='app-name' class='top opacity'><a href='index.html' class='no-underline'>此刻</a></div>
-<div id='music' class='top opacity'></div>
+<a href='#index' class='no-underline'><div id='app-name' class='top opacity'>此刻</div></a>
+<div id='music' class='top opacity'><audio id="myMusic" loop>请使用非IE浏览器</audio></div>
+<header id='header'></header>
+
 <section id='list'>
 <ul>
-<li class='item'><img src='1.jpg' class='image'><a href='blog.html'><h1 class='title'>我为什么写这个</h1></a></li>
-<li class='item'><img src='2.jpg' class='image'><h1 class='title'>人间美味牛肉汤</h1></li>
+<li class='item'><img src='1.jpg' class='image'><a href='#post/1'><h1 class='title'>我为什么写这个</h1></a></li>
 <li class='item'><img src='2.jpg' class='image'><h1 class='title'>人间美味牛肉汤</h1></li>
 </ul>
-
 <section class='center'>更多文章</section>
 </section>
 <footer class='center footer'>
-2byte
+2byte 2016
 </footer>
-
+<script src="js/static.js"></script>
 </body>
 </html>

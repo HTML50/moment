@@ -31,7 +31,7 @@ html,body{
 }
 
 #app-name{
-position: fixed;
+	position: fixed;
     top: 10px;
     left: 20px;
     background: rgba(2, 6, 7, 0.3);
@@ -47,6 +47,8 @@ position: fixed;
 	width:30px;
 	padding:10px;
 	background:url(../music.svg) no-repeat;
+	background-size:cover;
+	transition:backgroundImage,opacity .5s,.5s;
 }
 
 
