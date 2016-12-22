@@ -74,13 +74,12 @@ html,body{
 #article{
 	width:80%;
 	margin:50px auto;
+	color: #3e3e3e;
 }
 
 #article-content{
 	line-height:2.5rem;
 	text-indent:3rem;    
-	color: #3e3e3e;
-    font-size: 1.5rem;
     letter-spacing: 3px;
 }
 
@@ -129,19 +128,49 @@ text-shadow:2px 3px 4px #000;
 .center{
 	text-align:center;
 }
+.more{
+	background: #e7eaf2;
+    padding: 20px;
+    color: #727272;
+}
 .clear{
 	clear:both;
 }
 .footer{
 	margin-top:2rem;
+	font-size:1rem;
+	background:#ccc;
+	background: #0f1315;
+    padding: 20px;
+    color: #fff;
 }
 
 #background{
 	position:fixed;
 	top:0;left:0;bottom:0;right:0;
 	margin:auto;
-	width:14ch;
-	height:4ch;
+	width:175px;
+	height:98px;
 	opacity:0;
 	transition:opacity 1s;
+}
+
+
+
+
+@media screen and (max-width: 750px){
+	#list{
+		font-size:1rem;
+	}
+	
+	#article-content{
+	line-height:1.5rem;
+	text-indent:2.3rem;    
+	}
+}
+
+@media screen and (max-width: 500px){
+	#list{
+		font-size:0.8rem;
+	}
 }

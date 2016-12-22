@@ -32,17 +32,23 @@
 	else{
 		
 		var content ="<ul>\
-<li class='item'><img src='1.jpg' class='image'><a href='#post/1'><h1 class='title'>我为什么写这个</h1></a></li>\
-<li class='item'><img src='2.jpg' class='image'><h1 class='title'>人间美味牛肉汤</h1></li>\
-</ul>"
+		<li class='item'><img src='1.jpg' class='image'><a href='#post/1'><h1 class='title'>我为什么写这个</h1></a></li>\
+		<li class='item'><img src='2.jpg' class='image'><h1 class='title'>人间美味牛肉汤</h1></li>\
+		</ul>\
+		<section class='center'>更多文章</section>"
 		
 		bodyId.classList.add('outTransition')
-
+		backgroundWord.style.display = 'block';
+		backgroundWord.style.opacity = 1;
 		header.style.opacity = 0;
+		setTimeout(function(){	
+		header.style.display = 'block';
+		backgroundWord.style.opacity = 0;	
 		setTimeout(function(){
-		header.style.display = 'none';
-		go(content)
-		bodyId.classList.remove('outTransition')
+			header.style.display = 'none';
+			go(content)
+			bodyId.classList.remove('outTransition')
+		},500)
 		},1000)
 		
 	}
@@ -85,18 +91,18 @@
 		var xmlhttp= new XMLHttpRequest(); 
 		xmlhttp.onreadystatechange = function() { 
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			bodyId.classList.remove('outTransition')
-			
-			backgroundWord.style.display = 'hidden';
 			header.style.display = 'block';
+			backgroundWord.style.opacity = 0;
 			setTimeout(function(){
-			backgroundWord.style.opacity = 0;			
-			},100)
-			setTimeout(function(){
-			header.style.opacity = 1;
-			backgroundWord.style.opacity = 0;			
+				bodyId.classList.remove('outTransition')
+				backgroundWord.style.display = 'hidden';
+
+				setTimeout(function(){
+				header.style.opacity = 1;
+				backgroundWord.style.opacity = 0;			
+				},300)
+				bodyId.innerHTML =xmlhttp.responseText; 
 			},500)
-			bodyId.innerHTML =xmlhttp.responseText; 
 		} 
 		}
 		xmlhttp.open("GET", "blog.html", true); 
