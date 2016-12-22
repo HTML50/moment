@@ -19,11 +19,24 @@
 	
 	window.onpopstate = function(event) {
 	if(location.hash == '#post/1'){
+		header.style.backgroundImage = 'url(1.jpg)'
 		bodyId.classList.add('outTransition')
 		backgroundWord.style.display = 'block';
 		backgroundWord.style.opacity = 1;	
 		setTimeout(function(){
-		getSource();
+		getSource('blog.html');
+		},1000)
+
+		//var content = getArticle(1);
+		//go(content)
+	}
+	else if(location.hash == '#post/2'){
+		header.style.backgroundImage = 'url(2.jpg)'
+		bodyId.classList.add('outTransition')
+		backgroundWord.style.display = 'block';
+		backgroundWord.style.opacity = 1;	
+		setTimeout(function(){
+		getSource('blog2.html');
 		},1000)
 
 		//var content = getArticle(1);
@@ -32,8 +45,8 @@
 	else{
 		
 		var content ="<ul>\
-		<li class='item'><img src='1.jpg' class='image'><a href='#post/1'><h1 class='title'>我为什么写这个</h1></a></li>\
-		<li class='item'><img src='2.jpg' class='image'><h1 class='title'>人间美味牛肉汤</h1></li>\
+	<li class='item'><img src='1.jpg' class='image'><a href='#post/1'><h1 class='title'>我为什么写这个</h1></a></li>\
+<li class='item'><img src='2.jpg' class='image'><a href='#post/2'><h1 class='title'>人间美味牛肉汤</h1></a></li>\
 		</ul>\
 		<section class='center'>更多文章</section>"
 		
@@ -87,16 +100,16 @@
 		},100)
 	}
 	
-	function getSource(){
+	function getSource(f){
 		var xmlhttp= new XMLHttpRequest(); 
 		xmlhttp.onreadystatechange = function() { 
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			header.style.display = 'block';
 			backgroundWord.style.opacity = 0;
 			setTimeout(function(){
+				document.body.scrollTop = 0
 				bodyId.classList.remove('outTransition')
 				backgroundWord.style.display = 'hidden';
-
 				setTimeout(function(){
 				header.style.opacity = 1;
 				backgroundWord.style.opacity = 0;			
@@ -105,7 +118,7 @@
 			},500)
 		} 
 		}
-		xmlhttp.open("GET", "blog.html", true); 
+		xmlhttp.open("GET", f, true); 
 		xmlhttp.send(); 
 	}
 	
