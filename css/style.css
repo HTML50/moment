@@ -30,6 +30,14 @@ html,body{
     color: #fff;
 }
 
+.outTransition{
+	opacity:0;
+}
+
+.inTransition{
+	opacity:1;
+}
+
 #app-name{
 	position: fixed;
     top: 10px;
@@ -57,10 +65,12 @@ html,body{
 	opacity:0;
 	background:url(../1.jpg) no-repeat center;
 	background-size:cover;
-	transition:opacity .5s;
+	transition:opacity 1s;
 	height: 400px;
 }
-
+#list{
+	transition:all 1s;
+}
 #article{
 	width:80%;
 	margin:50px auto;
@@ -124,4 +134,14 @@ text-shadow:2px 3px 4px #000;
 }
 .footer{
 	margin-top:2rem;
+}
+
+#background{
+	position:fixed;
+	top:0;left:0;bottom:0;right:0;
+	margin:auto;
+	width:14ch;
+	height:4ch;
+	opacity:0;
+	transition:opacity 1s;
 }

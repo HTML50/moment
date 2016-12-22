@@ -1,38 +1,50 @@
 (function(){	
-	var isMute=false,
-	bodyId=document.getElementById('list');
+	var isMute=false,isOnVolume=false,
+	bodyId=document.getElementById('list'),
+	header=document.getElementById('header'),
+	backgroundWord=document.getElementById('background'),
+	audio = document.getElementById("myMusic");
 	init()
 	
 	
 	
 	
 	function init(){
+		
+	audio.src = 'http://p2.music.126.net/OENgE7Bvrn9Xh6fkeTY1cQ==/1363394418456225.mp3'
+	audio.addEventListener("canplaythrough", function(){ audio.play()});
+		
+		
 	document.getElementById('music').onclick=mute;
 	
 	window.onpopstate = function(event) {
 	if(location.hash == '#post/1'){
-		//var content = getArticle(1);
-		var header=document.getElementById('header');
-		header.style.display = 'block';
+		bodyId.classList.add('outTransition')
+		backgroundWord.style.display = 'block';
+		backgroundWord.style.opacity = 1;	
 		setTimeout(function(){
-		header.style.opacity = 1;
-		},0)
-
 		getSource();
+		},1000)
+
+		//var content = getArticle(1);
 		//go(content)
 	}
 	else{
-		var header=document.getElementById('header');
-		header.style.opacity = 0;
-		setTimeout(function(){
-		header.style.display = 'none';
-		},500)
 		
 		var content ="<ul>\
 <li class='item'><img src='1.jpg' class='image'><a href='#post/1'><h1 class='title'>我为什么写这个</h1></a></li>\
 <li class='item'><img src='2.jpg' class='image'><h1 class='title'>人间美味牛肉汤</h1></li>\
 </ul>"
+		
+		bodyId.classList.add('outTransition')
+
+		header.style.opacity = 0;
+		setTimeout(function(){
+		header.style.display = 'none';
 		go(content)
+		bodyId.classList.remove('outTransition')
+		},1000)
+		
 	}
 	};
 	
@@ -40,20 +52,50 @@
 	}
 	
 	function mute(){
-		if(isMute){
+		if(isMute && !isOnVolume){
 			this.style.backgroundImage = 'url(music.svg)'
+			audio.play();
+			volume(1);
 			isMute = false;
-		}else{
+		}else if(!isMute && !isOnVolume){
 			this.style.backgroundImage = 'url(mute.svg)'
+			volume(0);
 			isMute = true;
 		}
 		
 	}
 	
+	function volume(n){
+		isOnVolume=true
+		var number=n>audio.volume?0.1:-0.1,
+		musicIntervalId = setInterval(function(){
+			if(audio.volume!=n){
+			audio.volume=(audio.volume+number).toFixed(1);
+			}else{
+			clearInterval(musicIntervalId);
+			if(n==0) {
+			audio.pause();
+			}
+			isOnVolume=false;
+			}
+		},100)
+	}
+	
 	function getSource(){
 		var xmlhttp= new XMLHttpRequest(); 
 		xmlhttp.onreadystatechange = function() { 
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { 
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			bodyId.classList.remove('outTransition')
+			
+			backgroundWord.style.display = 'hidden';
+			header.style.display = 'block';
+			setTimeout(function(){
+			backgroundWord.style.opacity = 0;			
+			},100)
+			setTimeout(function(){
+			header.style.opacity = 1;
+			backgroundWord.style.opacity = 0;			
+			},500)
 			bodyId.innerHTML =xmlhttp.responseText; 
 		} 
 		}
