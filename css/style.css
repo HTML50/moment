@@ -17,6 +17,10 @@ html,body{
 	z-index:999;
 }
 
+.hidden{
+	display:none;
+}
+
 .opacity{
 	opacity:.3;
 	transition:opacity .5s;
@@ -57,6 +61,7 @@ html,body{
 	background:url(../music.svg) no-repeat;
 	background-size:cover;
 	transition:backgroundImage,opacity .5s,.5s;
+	cursor:pointer;
 }
 
 
@@ -69,18 +74,19 @@ html,body{
 	height: 400px;
 }
 #list{
-	transition:all 1s;
+	transition:opacity 1s;
 }
 #article{
-	width:80%;
+	width:70%;
 	margin:50px auto;
 	color: #3e3e3e;
+	font-family: '仿宋';
+    font-weight: normal;
 }
 
 #article-content{
-	line-height:2.5rem;
-	text-indent:3rem;    
-    letter-spacing: 3px;
+    line-height: 2.5rem;
+    text-indent: 4ch;
 }
 
 
@@ -114,16 +120,34 @@ background: rgba(255, 255, 255,0);
 text-shadow:2px 3px 4px #000;
 }
 
+.comment{
+	margin-top: 4.5rem;
+}
 
+
+
+.pre-next-article{
+	font-size: 1.1rem;
+    font-family: "微软雅黑";
+}
 .left-bar{
 	float:left;
 	width:50%;
-	background:#ccc;
 }
 .right-bar{
 	float:right;
 	width:50%;
+	text-align: right;
 }
+.link{
+	color:#000;
+	transition:background,color 1s,.5s;
+}
+.link:hover{
+	background:#858282;
+	color:#fff;
+}
+
 
 .center{
 	text-align:center;
@@ -137,7 +161,7 @@ text-shadow:2px 3px 4px #000;
 	clear:both;
 }
 .footer{
-	margin-top:2rem;
+
 	font-size:1rem;
 	background:#ccc;
 	background: #0f1315;
@@ -173,4 +197,21 @@ text-shadow:2px 3px 4px #000;
 	#list{
 		font-size:0.8rem;
 	}
+}
+
+@media screen and (max-width: 420px){
+	.title{
+		font-size:1rem;
+	}
+}
+
+@media screen and (max-width: 350px){
+	#list{
+		font-size:0.5rem;
+	}
+	
+	.title{
+		font-size:.8rem;
+	}
+	
 }
