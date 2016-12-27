@@ -176,6 +176,7 @@ text-shadow:2px 3px 4px #000;
 	width:175px;
 	height:98px;
 	opacity:0;
+	display:none;
 	transition:opacity 1s;
 }
 

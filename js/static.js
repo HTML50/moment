@@ -26,7 +26,9 @@
 		header.style.opacity = 0;	
 		bodyId.classList.add('outTransition')
 		backgroundWord.style.display = 'block';
+		setTimeout(function(){
 		backgroundWord.style.opacity = 1;	
+		},0)
 		setTimeout(function(){
 		header.style.backgroundImage = 'url(1.jpg)'
 		getSource('blog.html');
@@ -41,10 +43,13 @@
 		
 	}
 	else if(location.hash == '#post/2'){
+		document.title='好喝不过牛肉汤 | 此刻'
 		header.style.opacity = 0;
 		bodyId.classList.add('outTransition')
 		backgroundWord.style.display = 'block';
+		setTimeout(function(){
 		backgroundWord.style.opacity = 1;	
+		},0)
 		setTimeout(function(){
 		header.style.backgroundImage = 'url(2.jpg)'
 		getSource('blog2.html');
@@ -60,7 +65,7 @@
 <li class='item'><img src='2.jpg' class='image'><a href='#post/2'><h1 class='title'>好喝不过牛肉汤</h1></a></li>\
 		</ul>\
 		<section class='center more opacity''>更多文章</section>"
-		
+		document.title='首页 | 此刻'
 		bodyId.classList.add('outTransition')
 		backgroundWord.style.display = 'block';
 		backgroundWord.style.opacity = 1;
@@ -70,8 +75,10 @@
 		backgroundWord.style.opacity = 0;	
 		setTimeout(function(){
 			header.style.display = 'none';
+			backgroundWord.style.display = 'none';
 			go(content)
 			bodyId.classList.remove('outTransition')
+			
 		},500)
 		},1000)
 		
@@ -120,7 +127,7 @@
 			setTimeout(function(){
 				document.body.scrollTop = 0
 				bodyId.classList.remove('outTransition')
-				backgroundWord.style.display = 'hidden';
+				
 				setTimeout(function(){
 				header.style.opacity = 1;
 				backgroundWord.style.opacity = 0;
@@ -129,7 +136,7 @@
 			},500)
 		} 
 		}
-		xmlhttp.open("GET", f, true); 
+		xmlhttp.open("GET",f, true); 
 		xmlhttp.send(); 
 	}
 		
