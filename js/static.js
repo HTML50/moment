@@ -28,7 +28,7 @@
 		backgroundWord.style.display = 'block';
 		setTimeout(function(){
 		backgroundWord.style.opacity = 1;	
-		},0)
+		},100)
 		setTimeout(function(){
 		header.style.backgroundImage = 'url(1.jpg)'
 		getSource('blog.html');
@@ -49,7 +49,7 @@
 		backgroundWord.style.display = 'block';
 		setTimeout(function(){
 		backgroundWord.style.opacity = 1;	
-		},0)
+		},100)
 		setTimeout(function(){
 		header.style.backgroundImage = 'url(2.jpg)'
 		getSource('blog2.html');
@@ -68,7 +68,9 @@
 		document.title='首页 | 此刻'
 		bodyId.classList.add('outTransition')
 		backgroundWord.style.display = 'block';
-		backgroundWord.style.opacity = 1;
+		setTimeout(function(){
+		backgroundWord.style.opacity = 1;	
+		},100)
 		header.style.opacity = 0;
 		setTimeout(function(){	
 		header.style.display = 'block';
@@ -132,6 +134,9 @@
 				header.style.opacity = 1;
 				backgroundWord.style.opacity = 0;
 				},300)
+				setTimeout(function(){
+				backgroundWord.style.display = 'none';
+				},1000)
 				bodyId.innerHTML =xmlhttp.responseText; 	
 			},500)
 		} 

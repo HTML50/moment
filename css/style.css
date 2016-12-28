@@ -187,32 +187,81 @@ text-shadow:2px 3px 4px #000;
 	#list{
 		font-size:1rem;
 	}
-	
+		#article{
+	width:80%;
+}
 	#article-content{
-	line-height:1.5rem;
+	line-height:1.8rem;
 	text-indent:2.3rem;    
 	}
+	
+		.pre-next-article{
+	font-size:1rem;
+}
 }
 
 @media screen and (max-width: 500px){
 	#list{
 		font-size:0.8rem;
 	}
+	
+	#article{
+	width:80%;
+}
+#article h1{
+	font-size:1rem;
+}
+		.pre-next-article{
+	font-size:.8rem;
+}
 }
 
 @media screen and (max-width: 420px){
-	.title{
-		font-size:1rem;
+	html,body{
+    font-size: 1.4rem;
+}
+#article{
+	width:80%;
+}
+#article h1{
+	font-size:1rem;
+}
+	.pre-next-article{
+	font-size:.8rem;
+}
+
+.footer{
+		font-size:.9rem;
 	}
+
 }
 
 @media screen and (max-width: 350px){
-	#list{
-		font-size:0.5rem;
-	}
+
 	
-	.title{
+	html,body{
+    font-size: 1.2rem;
+}
+
+#app-name{
+	left:10px;
+}
+#music{
+	top:10px;
+	right:10px;
+}
+
+#article{
+	width:90%;
+}
+#article h1{
+	font-size:1rem;
+}
+
+.pre-next-article{
+	font-size:.8rem;
+}
+	.footer{
 		font-size:.8rem;
 	}
-	
 }

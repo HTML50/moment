@@ -1,4 +1,19 @@
-中文非技术博客
+# 此刻
 
-基于[github issues](https://github.com/wuhaoworld/github-issues-blog)的静态博客，做了功能与主题修改，以展示我的文人情怀与审美。
+个人中文非技术博客
 
+基于github issues的静态博客，专注于内容。
+
+
+
+## 进度
+
+**目前已完成：**
+
+- 前端框架
+- 整站逻辑
+
+**将加入功能：**
+
+- 基于github api对issues内容的读取
+- 自定义主题
