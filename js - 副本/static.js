@@ -58,26 +58,6 @@
 		//var content = getArticle(1);
 		//go(content)
 	}
-	
-	else if(location.hash == '#post/3'){
-		document.title='更大的世界，更远的远方 | 此刻'
-		header.style.opacity = 0;
-		bodyId.classList.add('outTransition')
-		backgroundWord.style.display = 'block';
-		setTimeout(function(){
-		backgroundWord.style.opacity = 1;
-		},100)
-		setTimeout(function(){
-		header.style.backgroundImage = 'url(3.jpg)'
-		getSource('blog3.html');
-		},1000)
-
-		//var content = getArticle(1);
-		//go(content)
-	}
-	
-	
-	
 	else{
 		
 		var content ="<ul>\
@@ -144,7 +124,6 @@
 		var xmlhttp= new XMLHttpRequest(); 
 		xmlhttp.onreadystatechange = function() { 
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			
 			header.style.display = 'block';
 			backgroundWord.style.opacity = 0;
 			setTimeout(function(){
