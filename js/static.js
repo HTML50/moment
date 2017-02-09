@@ -83,6 +83,7 @@
 		var content ="<ul>\
 	<li class='item'><img src='1.jpg' class='image'><a href='#post/1'><h1 class='title'>我为什么写这个</h1></a></li>\
 <li class='item'><img src='2.jpg' class='image'><a href='#post/2'><h1 class='title'>好喝不过牛肉汤</h1></a></li>\
+<li class='item'><img src='3.jpg' class='image'><a href='#post/3'><h1 class='title'>更大的世界，更远的远方</h1></a></li>\
 		</ul>\
 		<section class='center more opacity''>更多文章</section>"
 		document.title='首页 | 此刻'
