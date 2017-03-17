@@ -58,7 +58,7 @@ html,body{
 	height:30px;
 	width:30px;
 	padding:10px;
-	background:url(../music.svg) no-repeat;
+	background:url(../img/music.svg) no-repeat;
 	background-size:cover;
 	transition:backgroundImage,opacity .5s,.5s;
 	cursor:pointer;
@@ -68,7 +68,7 @@ html,body{
 #header{
 	display:none;
 	opacity:0;
-	background:url(../1.jpg) no-repeat center;
+	background:no-repeat center;
 	background-size:cover;
 	transition:opacity 1s;
 	height: 400px;

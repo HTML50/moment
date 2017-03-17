@@ -1,9 +1,10 @@
 var _config = {
-    blog_name       : '用于演示的博客',         // 博客名称
-    owner           : 'html50',           // github 用户名
-    repo            : 'blog',// github 中对应项目名
-    duoshuo_id      : '2bt',            // 在第三方评论插件多说申请站点的子域名
-    // access_token : 'abcde'+'fghijk',       // 请求量大时需要在 github 后台单独设置一个读取公开库的 token, 注意将token 拆成两个字符串，否则会被系统自动删除掉
-    per_page        : '5'                    // 默认一页显示几篇文章
-	
+    appName       : '此刻',          // 博客名称
+    githubId       : 'HTML50',       // github 用户名
+    repo            : 'moment',       // github 仓库名
+    backgroundMusic      : 'http://p2.music.126.net/OENgE7Bvrn9Xh6fkeTY1cQ==/1363394418456225.mp3',          
+    // 背景音乐的绝对地址
+    // access_token : 'abcde'+'fghijk',       
+    // 请求量大时需要在 github 后台单独设置一个读取公开库的 token, 注意将token 拆成两个字符串，否则会被系统自动删除掉
+    perPage        : '5'             // 默认一页显示几篇文章
 }
