@@ -2,7 +2,9 @@
 var pageArr=[],
     articleArr=[],
     nowPage,
-    nowPosition;
+    nowPosition,
+    imgsLoadComplete=false;
+    
 
   //获取内容
 	function getPage(n){
@@ -20,14 +22,21 @@ var pageArr=[],
     
     var html='';
     for(i=0;i<pageArr[n].length;i++){
-      html+="<li class='item'><img src='"+articleArr[pageArr[n][i]].img+"' class='image'><a href='#post/"+pageArr[n][i]+"'><h1 class='title'>"+articleArr[pageArr[n][i]].title+"</h1></a></li>"
+      html+="<li id='post"+pageArr[n][i]+"' class='item'><img src='"+articleArr[pageArr[n][i]].img+"' class='image'><a href='#post/"+pageArr[n][i]+"'><h1 class='title'>"+articleArr[pageArr[n][i]].title+"</h1></a></li>"
     }
-      //区分加载更多文章与返回主页
-      if(location.hash.indexOf('#index') != -1){
-        list.innerHTML = "<ul>"+html+"</ul>";
-      }else{
-        list.innerHTML += "<ul>"+html+"</ul>";
+
+    //区分加载更多文章与返回主页
+    if(location.hash.indexOf('#index') != -1){
+      list.innerHTML = "<ul>"+html+"</ul>";
+    }else{
+      list.innerHTML += "<ul>"+html+"</ul>";
+    }
+    
+    if(typeof(loading)!==undefined){
+      document.getElementById('post'+(i-1)).firstChild.onload = function(){
+        imgsLoadComplete=true;
       }
+    }
   }
   
   //将第一次读取的远程数据存入数组
@@ -82,7 +91,6 @@ var pageArr=[],
     
 		if(method=='get') postData=null;
     //get方法的参数在url中包含，postData是post方法的参数
-    
 		xhr.send(postData);
 	}
   

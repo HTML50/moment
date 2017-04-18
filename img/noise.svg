@@ -7,12 +7,12 @@
         scale="55" xChannelSelector="R" yChannelSelector="G"/>
   </filter>
 
-  <circle cx="100%" cy="100%" r="100" style="filter: url(#displacementFilter)">
+  <circle fill="#1a2323" cx="100%" cy="100%" r="100" style="filter: url(#displacementFilter)">
       <animate attributeType="XML" attributeName="cx" from="-100" to="100"
-        dur="10s" repeatCount="1" fill="freeze" />
+        dur="5s" repeatCount="1" fill="freeze" />
         <animate attributeType="XML" attributeName="cy" from="-100" to="100"
-        dur="10s" repeatCount="1" fill="freeze" />
+        dur="5s" repeatCount="1" fill="freeze" />
         <animate attributeType="XML" attributeName="r" from="100" to="200"
-        dur="10s" repeatCount="1"  fill="freeze" />        
+        dur="5s" repeatCount="1"  fill="freeze" />        
         </circle>
 </svg>

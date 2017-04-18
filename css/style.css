@@ -6,12 +6,29 @@
 
 html,body{
 	font-family: 'Microsoft YaHei';
-    font-weight: bolder;
-    font-size: 1.5rem;
+  font-weight: bolder;
+  font-size: 1.5rem;
 	background:#f4f4f4;
 }
 
 
+.ab-center{
+  position:fixed;
+  top:0;bottom:0;left:0;right:0;
+  margin:auto;
+}
+
+
+.welcome{
+  font-size:8rem;
+  width:16rem;
+  height:9rem;
+  background-image:url(../img/noise.svg);
+  background-size:cover;
+  filter:blur(1px);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 .top{
 	z-index:999;
@@ -50,6 +67,16 @@ html,body{
     padding: 10px;
 }
 
+#loading{
+  position:fixed;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  z-index:999;
+  background: #fefefe;
+  transition:opacity 1s;
+}
 
 #music{
 	position:fixed;
@@ -76,22 +103,35 @@ html,body{
 #list{
 	transition:opacity 1s;
 }
+
+#background{
+	position:fixed;
+	top:0;left:0;bottom:0;right:0;
+	margin:auto;
+	width:175px;
+	height:98px;
+	opacity:0;
+	display:none;
+	transition:opacity 1s;
+}
+
+
 #article{
 	width:70%;
 	margin:50px auto;
 	color: #3e3e3e;
 	font-family: '仿宋';
-    font-weight: normal;
+  font-weight: normal;
 }
 
 #article h1{
 	font-size: 1.7rem;
-    font-family: "宋体";
+  font-family: "宋体";
 }
 
 #article-content{
-    line-height: 2.5rem;
-    text-indent: 4ch;
+  line-height: 2.5rem;
+  text-indent: 4ch;
 }
 
 
@@ -106,16 +146,14 @@ html,body{
 }
 
 .title{
-    position: absolute;
-    display: block;
-    //top: calc(50% - 2ch);
-	//left:calc(50% - 6ch);
-	top: 50%;
+  position: absolute;
+  display: block;
+	top: 40%;
 	left:40%;
 	max-width:14ch;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.4);
-    color: #fff;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.4);
+  color: #fff;
 	text-shadow:2px 3px 4px #686868;
 	transition:background,text-shadow .5s,.5s;
 }
@@ -127,9 +165,9 @@ text-shadow:2px 3px 4px #000;
 
 .pre-next-article{
 	font-size: 1.1rem;
-    font-family: "宋体";
+  font-family: "宋体";
 	background: #e1e1e1;
-    padding: 20px 0;
+  padding: 20px 0;
 }
 .left-bar{
 	float:left;
@@ -156,8 +194,8 @@ text-shadow:2px 3px 4px #000;
 }
 .more{
 	background: #e7eaf2;
-    padding: 20px;
-    color: #727272;
+  padding: 20px;
+  color: #727272;
 }
 .clear{
 	clear:both;
@@ -165,29 +203,16 @@ text-shadow:2px 3px 4px #000;
 .footer{
 	font-size:1rem;
 	background: #1a1a1a;
-    padding: 20px;
-    color: #e6e6e6;
+  padding: 20px;
+  color: #e6e6e6;
 }
-
-#background{
-	position:fixed;
-	top:0;left:0;bottom:0;right:0;
-	margin:auto;
-	width:175px;
-	height:98px;
-	opacity:0;
-	display:none;
-	transition:opacity 1s;
-}
-
-
 
 
 @media screen and (max-width: 750px){
 	#list{
-		font-size:1rem;
+  font-size:1rem;
 	}
-		#article{
+  #article{
 	width:80%;
 }
 	#article-content{
@@ -195,14 +220,14 @@ text-shadow:2px 3px 4px #000;
 	text-indent:2.3rem;    
 	}
 	
-		.pre-next-article{
+  .pre-next-article{
 	font-size:1rem;
 }
 }
 
 @media screen and (max-width: 500px){
 	#list{
-		font-size:0.8rem;
+  font-size:0.8rem;
 	}
 	
 	#article{
@@ -211,14 +236,14 @@ text-shadow:2px 3px 4px #000;
 #article h1{
 	font-size:1rem;
 }
-		.pre-next-article{
+  .pre-next-article{
 	font-size:.8rem;
 }
 }
 
 @media screen and (max-width: 420px){
 	html,body{
-    font-size: 1.4rem;
+  font-size: 1.4rem;
 }
 #article{
 	width:80%;
@@ -231,7 +256,7 @@ text-shadow:2px 3px 4px #000;
 }
 
 .footer{
-		font-size:.9rem;
+  font-size:.9rem;
 	}
 
 }
@@ -240,7 +265,7 @@ text-shadow:2px 3px 4px #000;
 
 	
 	html,body{
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 #app-name{
@@ -262,6 +287,6 @@ text-shadow:2px 3px 4px #000;
 	font-size:.8rem;
 }
 	.footer{
-		font-size:.8rem;
+  font-size:.8rem;
 	}
 }
