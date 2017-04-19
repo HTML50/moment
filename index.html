@@ -4,16 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>首页 | 此刻</title>
-<link href='http://cdn.webfont.youziku.com/webfonts/nomal/23529/46017/58da2858f629d8096094e19f.css' rel='stylesheet' type='text/css' />
+<link href='https://cdn.webfont.youziku.com/webfonts/nomal/23529/46017/58da2858f629d8096094e19f.css' rel='stylesheet' type='text/css' />
 <link rel='stylesheet' href='css/style.css' type='text/css'/>
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 </head>
 <body>
-<!-- pre download-->
-<img src='img/mute.svg' class='hidden'>
-<!---->
 
-<a href='#index' class='no-underline' title='Home'><div id='app-name' class='top opacity'>此刻</div></a>
+<loading id='loading'><span class='ab-center welcome css9b956e0735be9'>此刻</span></loading>
+
+<a href='#index' class='no-underline' title='Home'><div id='appName' class='top opacity'>此刻</div></a>
 <div id='music' class='top opacity' title='off/on'><audio id="myMusic" loop></audio></div>
 <header id='header'></header>
 
@@ -26,6 +25,9 @@
 <section id='background'><img src='img/motto.png'></section>
 <spiner id='spiner'></spiner>
 
+<!-- pre download-->
+<img src='img/mute.svg' class='hidden'>
+<!---->
 <script src="./config.js"></script>
 <script src="js/ajax.js"></script>
 <script src="js/marked.js"></script>

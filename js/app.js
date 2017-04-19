@@ -4,34 +4,30 @@
 	header=document.getElementById('header'),
 	backgroundWord=document.getElementById('background'),
 	audio = document.getElementById("myMusic"),
-  applicationName = document.getElementById("app-name");
+  applicationName = document.getElementById("appName");
 	init();
 	
   
   //初始化
 	function init(){
+    function fadeAway(){
+      loading.style.opacity = 0;
+          setTimeout(function(){
+            loading.parentNode.removeChild(loading);
+          },1000);
+    }
   if(!localStorage.firstTime){
-    localStorage.firstTime="false";
-    console.log('第一次访问！')
-    var loading=document.createElement('loading');
-    loading.id='loading';
-    loading.innerHTML='<span class=\'ab-center welcome css9b956e0735be9\'>此刻</span>';
-    document.body.appendChild(loading);
-    
+    localStorage.firstTime="false";    
     setTimeout(function(){  
       var checkProcess = setInterval(function(){
         if(imgsLoadComplete){
           clearInterval(checkProcess);
-          loading.style.opacity = 0;
-          setTimeout(function(){
-            loading.style.display='hidden';
-            loading.parentNode.removeChild(loading);
-          },1000);
+          fadeAway();
         }
       },1000);
     },5000)
   }else{
-   console.log('老顾客！')
+   fadeAway();
   }
    
   //默认读取第一页内容
@@ -77,7 +73,6 @@
 	
 	//打开文章，页面切换的CSS属性增删
 	function openArticle(id){
-    console.log('open article: ',id)
     document.title=articleArr[id].title+' | '+_config.appName;
 		header.style.opacity = 0;	
 		bodyId.classList.add('outTransition')
