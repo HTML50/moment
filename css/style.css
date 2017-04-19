@@ -127,7 +127,7 @@ html,body{
 	width:70%;
 	margin:50px auto;
 	color: #3e3e3e;
-	font-family: '仿宋';
+	font-family: 'Times New Roman','仿宋';
   font-weight: normal;
 }
 
@@ -140,7 +140,13 @@ html,body{
   line-height: 2.5rem;
   text-indent: 4ch;
 }
-
+#article-content blockquote{
+  border-left: 10px #d0d0d0 solid;
+  padding: 20px 0px 20px 70px;
+  margin: 20px;
+  color: #505050;
+  font-size: 1.3rem;
+}
 
 .item{
 	position:relative;
