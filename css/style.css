@@ -134,23 +134,26 @@ html,body{
 #article h1{
 	font-size: 1.7rem;
   font-family: "宋体";
+  text-shadow: 1px 1px 1px #909090;
+  margin-bottom: 5%;
 }
 
 #article-content{
   line-height: 2.5rem;
-  text-indent: 4ch;
+  text-indent: 2em;
 }
 #article-content blockquote{
   border-left: 10px #d0d0d0 solid;
-  padding: 20px 0px 20px 70px;
+  padding: 20px 0px 20px 5%;
   margin: 20px;
-  color: #505050;
-  font-size: 1.3rem;
+  color: #888888;
+  font-size: 0.9em;
+  line-height: 1.5;
 }
 
 #article-content code{
-    padding: 3px 10px;
-    background: #e2e2e2;
+  padding: 3px 10px;
+  background: #e2e2e2;
 }
 
 .item{
@@ -226,7 +229,7 @@ text-shadow:2px 3px 4px #000;
 }
 
 
-@media screen and (max-width: 750px){
+@media screen and (max-width: 850px){
 	#list{
   font-size:1rem;
 	}
@@ -234,13 +237,17 @@ text-shadow:2px 3px 4px #000;
 	width:80%;
 }
 	#article-content{
-	line-height:1.8rem;
-	text-indent:2.3rem;    
+	line-height:1.8rem;  
 	}
 	
   .pre-next-article{
 	font-size:1rem;
-}
+  }
+  
+  #article-content blockquote{
+  border-left: 3px #d0d0d0 solid;
+  }
+
 }
 
 @media screen and (max-width: 500px){
