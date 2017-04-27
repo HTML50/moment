@@ -148,6 +148,11 @@ html,body{
   font-size: 1.3rem;
 }
 
+#article-content code{
+    padding: 3px 10px;
+    background: #e2e2e2;
+}
+
 .item{
 	position:relative;
 }

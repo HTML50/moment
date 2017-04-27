@@ -33,7 +33,7 @@ var pageArr=[],
     }
     
     if(typeof(loading)!==undefined){
-      document.getElementById('post'+(i-1)).firstChild.onload = function(){
+      document.getElementById('post'+i).firstChild.onload = function(){
         imgsLoadComplete=true;
       }
     }
