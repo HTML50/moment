@@ -1,5 +1,5 @@
 var _config = {
-    appName       : '此刻',          // 博客名称
+    appName       : '羊肉',          // 博客名称
     githubId       : 'HTML50',       // github 用户名
     repo            : 'moment',       // github 仓库名
     backgroundMusic      : 'http://m2.music.126.net/TZZspObsgil8RT2Oy9pErg==/2073678929995034.mp3',          

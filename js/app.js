@@ -32,12 +32,13 @@
    
   //默认读取第一页内容
 	getPage(1);
-  
-  //背景音乐
+   //背景音乐
 	audio.src = _config.backgroundMusic;
 	audio.addEventListener("canplaythrough", function(){audio.play();document.addEventListener('touchstart',function(){audio.play();document.removeEventListener('touchstart',arguments.callee,false);}, false);});
 	document.getElementById('music').onclick=mute;
 	applicationName.innerText = _config.appName;
+	loading.firstChild.innerText = _config.appName;
+  document.title='首页 | '+_config.appName;
   
   //页面地址变化监听
 	window.onpopstate = function(event) {
