@@ -38,7 +38,7 @@ fork到自己的仓库，修改config.js中的参数`仓库名、背景音乐地
 
 **其他注意：**
 
-由于为了节省加载时间，我仅加载了“此刻”两字的字体CSS，等待动画的字体我使用的是https://www.youziku.com/的[金梅毛笔张楷书](https://www.youziku.com/fontdetail/index/46017)，如果你需要修改博客名，需要修改index.html中title下方的CSS内容。
+由于为了节省加载时间，我仅加载了“此刻”两字的字体CSS，等待动画的字体我使用的是https://www.youziku.com/ 的[金梅毛笔张楷书](https://www.youziku.com/fontdetail/index/46017)，如果你需要修改博客名，需要修改index.html中title下方的CSS内容。
 
 `<link href='https://cdn.webfont.youziku.com/webfonts/nomal/23529/46017/5901a2fcf629d81470a2fcb2.css' rel='stylesheet' type='text/css' />`
 
