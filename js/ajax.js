@@ -26,10 +26,10 @@ var pageArr=[],
     }
 
     //区分加载更多文章与返回主页
-    if(location.hash.indexOf('#index') != -1){
-      list.innerHTML = "<ul>"+html+"</ul>";
-    }else{
+    if(location.hash.indexOf('#post') != -1){
       list.innerHTML += "<ul>"+html+"</ul>";
+    }else{
+      list.innerHTML = "<ul>"+html+"</ul>";
     }
     
     if(typeof(loading)!==undefined){
