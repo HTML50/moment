@@ -20,8 +20,9 @@ var pageArr=[],
 	//组织文章列表的innerHTML
   function showPageList(n){
     
-    var html='';
-    for(i=0;i<pageArr[n].length;i++){
+    var html='',i=0;
+    
+    for(;i<pageArr[n].length;i++){
       html+="<li id='post"+pageArr[n][i]+"' class='item'><img src='"+articleArr[pageArr[n][i]].img+"' class='image'><a href='#post/"+pageArr[n][i]+"'><h1 class='title'>"+articleArr[pageArr[n][i]].title+"</h1></a></li>"
     }
 
@@ -32,8 +33,8 @@ var pageArr=[],
       list.innerHTML = "<ul>"+html+"</ul>";
     }
     
-    if(typeof(loading)!==undefined){
-      document.getElementById('post'+i).firstChild.onload = function(){
+    if(typeof(loading)!== 'undefined'){
+      document.getElementById('post'+pageArr[n][0]).firstChild.onload = function(){
         imgsLoadComplete=true;
       }
     }

@@ -85,6 +85,15 @@ html,body{
   transition:opacity 1s;
 }
 
+.spinner{
+	display: none;
+	font-size: 87px;
+    text-align: center;
+    line-height: 0;
+    -webkit-text-fill-color: rgb(0, 0, 0);
+    animation: spinning 5s ease-out infinite;
+}
+
 #music{
 	position:fixed;
 	top:20px;
@@ -314,4 +323,11 @@ text-shadow:2px 3px 4px #000;
 	.footer{
   font-size:.8rem;
 	}
+}
+
+
+@keyframes spinning{
+	0%{opacity: 0}
+	50%{opacity: 1}
+	100%{opacity: 0}
 }

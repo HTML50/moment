@@ -17,7 +17,11 @@
           },1000);
     }
   if(!localStorage.firstTime){
-    localStorage.firstTime="false";    
+    localStorage.firstTime="false";
+    setTimeout(function(){
+      document.querySelector('.spinner').style.display = 'block';
+    },3000)
+
     setTimeout(function(){  
       var checkProcess = setInterval(function(){
         if(imgsLoadComplete){
@@ -27,7 +31,7 @@
       },1000);
     },5000)
   }else{
-   fadeAway();
+    setTimeout(fadeAway,3000);
   }
    
   //默认读取第一页内容
@@ -37,7 +41,7 @@
 	audio.addEventListener("canplaythrough", function(){audio.play();document.addEventListener('touchstart',function(){audio.play();document.removeEventListener('touchstart',arguments.callee,false);}, false);});
 	document.getElementById('music').onclick=mute;
 	applicationName.innerText = _config.appName;
-	loading.firstChild.innerText = _config.appName;
+	loading.firstChild.firstChild.innerText = _config.appName;
   document.title='首页 | '+_config.appName;
   
   //页面地址变化监听
