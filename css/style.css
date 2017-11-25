@@ -1,3 +1,5 @@
+@font-face {font-family: 'jmmaobi';src: url('//raw.githubusercontent.com/b41/b41.github.io/master/font.png') format('woff2'),url('//raw.githubusercontent.com/b41/b41.github.io/master/font.bmp') format('woff');font-weight: normal;font-style: normal;}.css{font-family: 'jmmaobi';}
+
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-track{background-color:#fff}
 ::-webkit-scrollbar-thumb{background-color:#4b6682}
