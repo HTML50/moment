@@ -48,7 +48,7 @@ var pageArr=[],
       
 			title=data[i].title;
 			time=data[i].created_at;
-      id=data[i].number;
+      id=i;
       content = data[i].body
       img = content.match(/\((.*)\)/)[1];
 

@@ -38,7 +38,13 @@
 	getPage(1);
    //背景音乐
 	audio.src = _config.backgroundMusic;
-	audio.addEventListener("canplaythrough", function(){audio.play();document.addEventListener('touchstart',function(){audio.play();document.removeEventListener('touchstart',arguments.callee,false);}, false);});
+	audio.addEventListener("canplaythrough", function(){
+    audio.play();
+    document.addEventListener('touchstart',function(){
+      audio.play();
+      document.removeEventListener('touchstart',arguments.callee,false);
+    }, false);
+  });
 	document.getElementById('music').onclick=mute;
 	applicationName.innerText = _config.appName;
 	loading.firstChild.firstChild.innerText = _config.appName;
@@ -116,20 +122,20 @@
       content=marked(articleArr[id].content);
     
     
-    if(articleArr[id-1]===undefined){
+    if(articleArr[id+1]===undefined){
       nextURL='javascript:void(0)';
       nextTitle='&ensp;没有文章了';
     }else{
-      nextURL='#post/'+(id-1);
-      nextTitle='《'+articleArr[id-1].title+'》';
+      nextURL='#post/'+(id+1);
+      nextTitle='《'+articleArr[id+1].title+'》';
     }
     
-    if(articleArr[id+1]===undefined){
+    if(articleArr[id-1]===undefined){
       preURL='javascript:void(0)';
       preTitle='没有文章了&ensp;';
     }else{
-      preURL='#post/'+(id+1);
-      preTitle='《'+articleArr[id+1].title+'》';
+      preURL='#post/'+(id-1);
+      preTitle='《'+articleArr[id-1].title+'》';
     }
     
     var html="<article id='article'>\
