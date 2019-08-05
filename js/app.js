@@ -40,9 +40,15 @@
 	audio.src = _config.backgroundMusic;
 	audio.addEventListener("canplaythrough", function(){
 
-      document.addEventListener('click',function(){
+    document.addEventListener('click',function(){
       audio.play();
       document.removeEventListener('click',arguments.callee);
+    })    
+
+
+    document.addEventListener('mousewheel',function(){
+      audio.play();
+      document.removeEventListener('mousewheel',arguments.callee);
     })
 
 
@@ -51,6 +57,8 @@
       document.removeEventListener('touchstart',arguments.callee,false);
     }, false);
   });
+
+
 	document.getElementById('music').onclick=mute;
 	applicationName.innerText = _config.appName;
 	loading.firstChild.firstChild.innerText = _config.appName;
