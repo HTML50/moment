@@ -14,7 +14,6 @@
 }
 
 html,body{
-	font-family: 'Microsoft YaHei';
   font-weight: bolder;
   font-size: 1.5rem;
 	background:#f4f4f4;
@@ -138,15 +137,16 @@ html,body{
 	width:70%;
 	margin:50px auto;
 	color: #3e3e3e;
-	font-family: 'Times New Roman','仿宋';
+	font-family: monospace;
   font-weight: normal;
 }
 
 #article h1{
-	font-size: 1.7rem;
-  font-family: "宋体";
-  text-shadow: 1px 1px 1px #909090;
-  margin-bottom: 5%;
+	font-size: 1.5em;
+	margin-bottom: 5%;
+	font-family: auto;
+    font-weight: 500;
+    color: #2f2f2f;
 }
 
 #article-content{
