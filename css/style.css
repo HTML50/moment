@@ -154,11 +154,13 @@ html,body{
   text-indent: 2em;
 }
 #article-content blockquote{
+  font-family: "Calibri";
   border-left: 10px #d0d0d0 solid;
   padding: 20px 0px 20px 5%;
   margin: 20px;
   color: #888888;
   font-size: 0.9em;
+  font-weight: 100;
   line-height: 1.5;
 }
 
