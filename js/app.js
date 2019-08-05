@@ -39,7 +39,13 @@
    //背景音乐
 	audio.src = _config.backgroundMusic;
 	audio.addEventListener("canplaythrough", function(){
-    audio.play();
+
+      document.addEventListener('click',function(){
+      audio.play();
+      document.removeEventListener('click',arguments.callee);
+    })
+
+
     document.addEventListener('touchstart',function(){
       audio.play();
       document.removeEventListener('touchstart',arguments.callee,false);
