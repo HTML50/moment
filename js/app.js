@@ -81,6 +81,7 @@
         backgroundWord.style.opacity = 1;	
         },100)
         header.style.opacity = 0;
+        footer.style.opacity = 0;
         setTimeout(function(){	
         header.style.display = 'block';
         backgroundWord.style.opacity = 0;
@@ -90,6 +91,7 @@
             backgroundWord.style.display = 'none';
             getPage(1)
             bodyId.classList.remove('outTransition')
+            footer.style.opacity = 1;
           },500)
         },1000)
       }
@@ -100,6 +102,7 @@
 	function openArticle(id){
     document.title=articleArr[id].title+' | '+_config.appName;
 		header.style.opacity = 0;	
+    footer.style.opacity = 0;
 		bodyId.classList.add('outTransition')
 		backgroundWord.style.display = 'block';
 		setTimeout(function(){
@@ -117,6 +120,7 @@
       
       setTimeout(function(){
       header.style.opacity = 1;
+      footer.style.opacity = 1;
       backgroundWord.style.opacity = 0;
       },300)
       setTimeout(function(){

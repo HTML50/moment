@@ -227,7 +227,7 @@ text-shadow:2px 3px 4px #000;
 	text-align:center;
 }
 .more{
-	background: #e7eaf2;
+  background: #e7eaf2;
   padding: 20px;
   color: #727272;
 }
@@ -239,6 +239,7 @@ text-shadow:2px 3px 4px #000;
 	background: #1a1a1a;
   padding: 20px;
   color: #e6e6e6;
+  transition:opacity 1s;
 }
 
 
