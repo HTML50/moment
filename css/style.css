@@ -1,11 +1,10 @@
-@font-face {font-family: 'jmmaobi';src: url('https://raw.githubusercontent.com/b41/b41.github.io/master/font.png') format('woff2'),url('https://raw.githubusercontent.com/b41/b41.github.io/master/font.bmp') format('woff');font-weight: normal;font-style: normal;}.css{font-family: 'jmmaobi';}
+@font-face {font-family: 'jmmaobi';src: url('../img/font.png') format('woff2'),url('../img/font.bmp') format('woff');font-weight: normal;font-style: normal;}.css{font-family: 'jmmaobi';}
 
-::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar{width: 5px;}
 ::-webkit-scrollbar-track{background-color:#fff}
-::-webkit-scrollbar-thumb{background-color:#4b6682}
+::-webkit-scrollbar-thumb{background-color: #7a7a7a;border-radius: 5px;}
 ::-webkit-scrollbar-thumb:hover{background-color:#656565}
 ::-webkit-scrollbar-thumb:active{background-color:#fff}
-
 
 *{
 	margin:0;
@@ -19,7 +18,9 @@ html,body{
 	background:#f4f4f4;
 }
 
-
+a{
+	-webkit-user-drag: none;
+}
 .ab-center{
   position:fixed;
   top:0;bottom:0;left:0;right:0;
@@ -119,6 +120,10 @@ html,body{
 }
 #list{
 	transition:opacity 1s;
+	height: 100%;
+	width: 100%;
+	user-select: none;
+	-webkit-user-drag: none;
 }
 
 #background{
@@ -145,8 +150,8 @@ html,body{
 	font-size: 1.5em;
 	margin-bottom: 5%;
 	font-family: auto;
-    font-weight: 500;
-    color: #2f2f2f;
+	font-weight: 500;
+	color: #2f2f2f;
 }
 
 #article-content{
@@ -169,33 +174,44 @@ html,body{
   background: #e2e2e2;
 }
 
-.item{
+section#list li{
 	position:relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	overflow: hidden;
 }
 
-.image{
-	height:100%;
-	width:100%;
-	vertical-align:bottom;
+section#list li img{
+  -webkit-user-drag: none;
+  width:100%;
+  filter: brightness(1);
+  transform: scale(1);
+  transition: filter,transform 5s,6s;
 }
 
-.title{
+section#list a {z-index: 1}
+section#list a h1{
   position: absolute;
-  display: block;
-	top: 40%;
-	left:40%;
-	max-width:14ch;
+  top: 50%;
+  left: 50%;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgb(154 154 154 / 40%);
   color: #fff;
-	text-shadow:2px 3px 4px #686868;
-	transition:background,text-shadow .5s,.5s;
+  text-shadow: 2px 3px 4px #686868 !important;
+  transform: translate(-50%,-50%);
+  transition:background,text-shadow 2s,2s;
+  -webkit-user-drag: none;
 }
 
-.title:hover{
-background: rgba(255, 255, 255,0);
-text-shadow:2px 3px 4px #000;
+section#list a h1:hover{background: rgba(255, 255, 255,0);text-shadow:2px 3px 4px #000  !important;}
+
+section#list a:hover + img{
+	filter: brightness(0.5);
+ transform: scale(1.05);
 }
+
 
 .pre-next-article{
 	font-size: 1.1rem;

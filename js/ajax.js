@@ -3,14 +3,14 @@ var pageArr=[],
     articleArr=[],
     nowPage,
     nowPosition,
+    mod='index',
     imgsLoadComplete=false;
-    
 
   //获取内容
 	function getPage(n){
     nowPage=n;
     if(pageArr[n]===undefined){
-      ajax('get','https://api.github.com/repos/'+_config.githubId+'/'+_config.repo+'/issues?page='+n+'&per_page='+_config.perPage,n);
+      ajax(n);
     }
     else{
       showPageList(n);
@@ -23,18 +23,18 @@ var pageArr=[],
     var html='',i=0;
     
     for(;i<pageArr[n].length;i++){
-      html+="<li id='post"+pageArr[n][i]+"' class='item'><img src='"+articleArr[pageArr[n][i]].img+"' class='image'><a href='#post/"+pageArr[n][i]+"'><h1 class='title'>"+articleArr[pageArr[n][i]].title+"</h1></a></li>"
+      html+="<li id='post"+pageArr[n][i]+"'><a href='#post/"+pageArr[n][i]+"'><h1>"+articleArr[pageArr[n][i]].title+"</h1></a><img src='"+articleArr[pageArr[n][i]].img+"'></li>"
     }
 
     //区分加载更多文章与返回主页
-    if(location.hash.indexOf('#post') != -1){
-      list.innerHTML += "<ul>"+html+"</ul>";
+    if(n!=1){
+      list.firstChild.innerHTML += html;
     }else{
       list.innerHTML = "<ul>"+html+"</ul>";
     }
     
     if(typeof(loading)!== 'undefined'){
-      document.getElementById('post'+pageArr[n][0]).firstChild.onload = function(){
+      document.getElementById('post'+pageArr[n][0]).lastChild.onload = function(){
         imgsLoadComplete=true;
       }
     }
@@ -42,8 +42,9 @@ var pageArr=[],
   
   //将第一次读取的远程数据存入数组
   function dataToArr(data,pageNum){
-    var id,img,title,time,content,pageArrTemp=[];  
+    var id,img,music,title,time,content,pageArrTemp=[];  
 
+     console.log(pageNum,data)
     for(i=0;i<data.length;i++){
       
 			title=data[i].title;
@@ -52,14 +53,18 @@ var pageArr=[],
       content = data[i].body
       img = content.match(/\((.*)\)/)[1];
 
+      var musicReg = content.match(/<!--(.*)-->/)
+      if(musicReg) music = content.match(/<!--(.*)-->/)[1];
+      else music = _config.backgroundMusic
+
       var pos = content.indexOf('#');
       content = content.slice(pos);
 
-      
       articleArr[id] = {
-      "title" : title,
+      "title":title,
       "time":time,
       "img":img,
+      "music":music,
       "content":content
       }
       
@@ -71,10 +76,10 @@ var pageArr=[],
 	}
 	
 	
-	function ajax(method,url,pageNum,postData){
+	function ajax(pageNum){
 		var xhr = new XMLHttpRequest();
 	 
-		xhr.open(method, url, true);
+		xhr.open('get', 'https://api.github.com/repos/'+_config.githubId+'/'+_config.repo+'/issues?page='+pageNum+'&per_page='+_config.perPage, true);
 		xhr.setRequestHeader("Content-type","text/plain");
 		xhr.onreadystatechange = function(){
 		
@@ -90,9 +95,7 @@ var pageArr=[],
 		}
 		};
     
-		if(method=='get') postData=null;
-    //get方法的参数在url中包含，postData是post方法的参数
-		xhr.send(postData);
+		xhr.send();
 	}
   
   function loaded(){
