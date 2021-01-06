@@ -15,7 +15,8 @@
 html,body{
   font-weight: bolder;
   font-size: 1.5rem;
-	background:#f4f4f4;
+  background:#f4f4f4;
+  /* scroll-behavior: smooth; */
 }
 
 a{
@@ -90,10 +91,19 @@ a{
 .spinner{
 	display: none;
 	font-size: 87px;
-    text-align: center;
-    line-height: 0;
-    -webkit-text-fill-color: rgb(0, 0, 0);
-    animation: spinning 5s ease-out infinite;
+	text-align: center;
+	line-height: 0;
+	-webkit-text-fill-color: rgb(0, 0, 0);
+	animation: spinning 5s ease-out infinite;
+}
+
+
+.fade{
+	animation: fading 4s ease-out;
+}
+
+.load{
+	animation: loading 4s ease-out;
 }
 
 #music{
@@ -243,9 +253,10 @@ section#list a:hover + img{
 	text-align:center;
 }
 .more{
-  background: #e7eaf2;
+  background: #646464;
   padding: 20px;
   color: #727272;
+  cursor: pointer;
 }
 .clear{
 	clear:both;
@@ -351,4 +362,16 @@ section#list a:hover + img{
 	0%{opacity: 0}
 	50%{opacity: 1}
 	100%{opacity: 0}
+}
+
+
+@keyframes fading{
+	0%{opacity: 1}
+	50%{opacity: 0}
+	100%{opacity: 1}
+}
+
+@keyframes loading{
+	0%{opacity: 0}
+	50%{opacity: 1}
 }

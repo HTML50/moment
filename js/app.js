@@ -40,7 +40,7 @@
     }
 
   //默认读取第一页内容
-    getPage(1);
+  getPage(1);
    //背景音乐
    audio.src = _config.backgroundMusic;
 
@@ -93,7 +93,7 @@
       },100)
       header.style.opacity = 0;
       footer.style.opacity = 0;
-      more.style.opacity = 1;
+      more.style.opacity = 0;
       setTimeout(function(){
         header.style.display = 'block';
         backgroundWord.style.opacity = 0;
@@ -104,6 +104,7 @@
           bodyId.classList.remove('outTransition')
           footer.style.opacity = 1;
           more.classList.remove('hidden');
+          more.style.opacity = null;
           restoreScroll()
         },500)
       },1000)
@@ -221,7 +222,7 @@
     setTimeout(function(){
       if(id==-1) audio.src = _config.backgroundMusic
        else audio.src = articleArr[id].music
-      volume(1);
+      if(!isMute) volume(1);
     },1000)
     
   }
@@ -235,7 +236,21 @@
   }
 
   function showMore(){
-    getPage(nowPage+1)
+    var _this = this;
+    _this.classList.add('fade')
+    _this.firstChild.innerHTML = '加载中'
+    setTimeout(function(){
+      _this.classList.remove('fade')
+        if(getMore()){
+        setTimeout(function(){
+            
+            _this.firstChild.innerHTML = '更多文章'
+        },1000)      
+      }else{
+        _this.firstChild.innerHTML = '没有文章了'
+      }
+    },1000)
   }
 
 })();
+
