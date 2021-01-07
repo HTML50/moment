@@ -27,13 +27,13 @@ var pageArr=[],
 
 
 
-function goto(x){
-  window.scroll({
-    top:x,
-    left:0,
-    behavior:'smooth'
-  })
-}
+  function goto(x){
+    window.scroll({
+      top:x,
+      left:0,
+      behavior:'smooth'
+    })
+  }
 
 
   function showArticle(n){   
@@ -47,8 +47,10 @@ function goto(x){
 
       list.firstChild.innerHTML += html;
 
+      setTimeout(function(){
+        goto(document.documentElement.scrollTop+window.screen.height);
+      },500)
 
-      goto(document.documentElement.scrollTop+window.screen.height);
     }else{
       var html='',i=0;
 
@@ -124,7 +126,6 @@ function goto(x){
     pageArr[pageNum]=pageArrTemp;    
     showArticle(pageNum);
 	}
-	
 	
 	function ajax(pageNum){
 		var xhr = new XMLHttpRequest();
