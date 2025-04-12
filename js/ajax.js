@@ -103,7 +103,15 @@ var pageArr=[],
 			time=data[i].created_at;
       id=i + (nowPage-1)*_config.perPage;
       content = data[i].body
-      img = content.match(/\((.*)\)/)[1];
+      
+       // 检查 match 方法的返回值是否为 null
+        var matchResult = content.match(/\((.*)\)/);
+        if (matchResult) {
+            img = matchResult[1];
+        } else {
+            // 如果没有匹配到，设置默认图片链接
+            img = _config.defaultImage; 
+        }
 
       var musicReg = content.match(/<!--(.*)-->/)
       if(musicReg) music = content.match(/<!--(.*)-->/)[1];
@@ -130,7 +138,7 @@ var pageArr=[],
 	function ajax(pageNum){
 		var xhr = new XMLHttpRequest();
 	 
-		xhr.open('get', 'https://api.github.com/repos/'+_config.githubId+'/'+_config.repo+'/issues?page='+pageNum+'&per_page='+_config.perPage, true);
+		xhr.open('get', 'https://api.github.com/repos/'+_config.githubId+'/'+_config.repo+'/issues?labels=blog&page='+pageNum+'&per_page='+_config.perPage, true);
 		xhr.setRequestHeader("Content-type","text/plain");
 		xhr.onreadystatechange = function(){
 		
