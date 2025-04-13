@@ -90,7 +90,7 @@
       backgroundWord.style.display = 'block';
       setTimeout(function(){
         backgroundWord.style.opacity = 1;
-      },100)
+      },500)
       header.style.opacity = 0;
       footer.style.opacity = 0;
       more.style.opacity = 0;
@@ -106,8 +106,8 @@
           more.classList.remove('hidden');
           more.style.opacity = null;
           restoreScroll()
-        },500)
-      },1000)
+        },700)
+      },1500)
       switchMusic(-1);
     }
   };
@@ -141,10 +141,10 @@
         },300)
         setTimeout(function(){
           backgroundWord.style.display = 'none';
-        },1000)
+        },1500)
         bodyId.innerHTML =generateBlogHTML(id); 	
       },500)
-    },1000)
+    },1500)
     
   }
   
