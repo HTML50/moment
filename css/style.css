@@ -125,11 +125,11 @@ a{
 	opacity:0;
 	background:no-repeat center;
 	background-size:cover;
-	transition:opacity 1s;
+	transition:opacity 1.2s;
 	height: 400px;
 }
 #list{
-	transition:opacity 1s;
+	transition:opacity 1.5s;
 	height: 100%;
 	width: 100%;
 	user-select: none;
@@ -144,7 +144,7 @@ a{
 	height:98px;
 	opacity:0;
 	display:none;
-	transition:opacity 1s;
+	transition:opacity 1.5s;
 }
 
 
@@ -266,7 +266,7 @@ section#list a:hover + img{
 	background: #1a1a1a;
   padding: 20px;
   color: #e6e6e6;
-  transition:opacity 1s;
+  transition:opacity 1.5s;
 }
 
 
